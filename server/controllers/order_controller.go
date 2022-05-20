@@ -68,8 +68,8 @@ func AddOrder() gin.HandlerFunc {
 			return
 		}
 
-		c.JSON(http.StatusCreated, responses.OrderResponse{
-			Status:  http.StatusCreated,
+		c.JSON(http.StatusOK, responses.OrderResponse{
+			Status:  http.StatusOK,
 			Message: "success",
 			Data: map[string]interface{}{
 				"data": result,
@@ -112,13 +112,7 @@ func GetAllOrders() gin.HandlerFunc {
 			orders = append(orders, singleOrder)
 		}
 
-		c.JSON(http.StatusOK, responses.OrderResponse{
-			Status:  http.StatusOK,
-			Message: "success",
-			Data: map[string]interface{}{
-				"data": orders,
-			},
-		})
+		c.JSON(http.StatusOK, orders)
 	}
 }
 
